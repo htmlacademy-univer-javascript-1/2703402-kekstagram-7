@@ -49,9 +49,10 @@ const NAMES = [
 ];
 
 // Генерация одного комментария
+// commentId — СНАРУЖИ функции createComment
 let commentId = 1;
+
 const createComment = () => {
-  // 1 или 2 случайных предложения
   const sentenceCount = getRandomInteger(1, 2);
   const messages = [];
   for (let i = 0; i < sentenceCount; i++) {
@@ -59,8 +60,8 @@ const createComment = () => {
   }
 
   return {
-    id: commentId++,
-    avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
+    id: commentId++,  // уникальный id
+    avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,  // 1..6
     message: messages.join(' '),
     name: getRandomElement(NAMES)
   };
